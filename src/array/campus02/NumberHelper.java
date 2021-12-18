@@ -1,11 +1,13 @@
 package array.campus02;
 
+import java.util.Arrays;
+
 public class NumberHelper {
 
     public static void main(String[] args) {
-        int[] arr = {6,2,3,4,5};
+        int[] arr = {6,2,3,6,5};
 
-        System.out.println(isSortedArray(arr));
+        System.out.println(Arrays.toString(removeDuplicates(arr)));
     }
 
     public static boolean isSortedArray(int[] numbers){
@@ -16,5 +18,14 @@ public class NumberHelper {
             } else return false;
         }
         return true;
+    }
+
+    public static int[] removeDuplicates(int[] numbers) {
+        for(int i = 0; i < numbers.length; i++) {
+            for(int j = i + 1; j < numbers.length; j++ ){
+                if (numbers[i] == numbers[j]) numbers[j] = -1;
+            }
+        }
+        return numbers;
     }
 }
